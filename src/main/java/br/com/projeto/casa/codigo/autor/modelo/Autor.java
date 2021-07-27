@@ -1,8 +1,8 @@
 package br.com.projeto.casa.codigo.autor.modelo;
 
-import br.com.projeto.casa.codigo.autor.repositorio.AutorRepositorio;
 import br.com.projeto.casa.codigo.autor.modelo.excessao.AutorJaCadastradoException;
 import br.com.projeto.casa.codigo.autor.modelo.excessao.EmailFormatoInvalidoException;
+import br.com.projeto.casa.codigo.autor.repositorio.AutorRepositorio;
 import br.com.projeto.casa.codigo.email.Email;
 
 import javax.persistence.Entity;
@@ -10,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.Instant;
@@ -46,18 +45,12 @@ public class Autor {
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
 
-    @NotNull( message = NOME_INVALIDO)
-    @NotEmpty( message = NOME_INVALIDO )
     @NotBlank( message = NOME_INVALIDO )
     private String nome;
 
-    @NotNull( message = EMAIL_INVALIDO )
-    @NotEmpty( message = EMAIL_INVALIDO )
     @NotBlank( message = EMAIL_INVALIDO )
     private String email;
 
-    @NotNull( message = DESCRICAO_INVALIDO )
-    @NotEmpty( message = DESCRICAO_INVALIDO )
     @NotBlank( message = DESCRICAO_INVALIDO )
     @Size( max = 400, message = DESCRICAO_MAIS_400_CARACTERES)
     private String descricao;
