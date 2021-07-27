@@ -31,11 +31,4 @@ class Notificacao {
         return new RespostaErro(400, exception.getFieldErrors().get(0).getDefaultMessage() );
     }
 
-    @ExceptionHandler({ConstraintViolationException.class})
-    @ResponseStatus( HttpStatus.BAD_REQUEST )
-    RespostaErro dadosInvalidos( final ConstraintViolationException exception ){
-        return new RespostaErro(400, exception.getMessage() );
-    }
-
-
 }

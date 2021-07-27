@@ -11,7 +11,7 @@ class RespostaErro {
         this.mensagem = mensagem;
     }
 
-    public Integer getField() {
+    public Integer getCodigo() {
         return codigo;
     }
 

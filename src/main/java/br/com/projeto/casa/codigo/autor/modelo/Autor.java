@@ -17,13 +17,17 @@ import java.util.Optional;
 
 @Entity
 public class Autor {
-
     public static final String NOME_INVALIDO = "Nome do autor invalido.";
+
     public static final String EMAIL_INVALIDO = "Email do autor invalido.";
     public static final String DESCRICAO_INVALIDO = "Descricao do autor invalido.";
     public static final String DESCRICAO_MAIS_400_CARACTERES = "Descricao tem mais de 400 caracteres.";
 
-    private static boolean emailValido(final String email ){
+    public static Autor mock( final String email ){
+        return new Autor( "", email, "" );
+    }
+
+    private static boolean emailValido( final String email ){
         return Email.match( email );
     }
 
@@ -38,7 +42,7 @@ public class Autor {
         this.email = email;
         this.nome = nome;
         this.descricao = descricao;
-        this.instant = Instant.now();
+        this.dataCadastro = Instant.now();
     }
 
     @Id
@@ -56,7 +60,7 @@ public class Autor {
     private String descricao;
 
     @NotNull
-    private Instant instant;
+    private Instant dataCadastro;
 
     public Autor cadastrar( final AutorRepositorio autorRepositorio ){
         buscarAutorPorEmail( autorRepositorio )
