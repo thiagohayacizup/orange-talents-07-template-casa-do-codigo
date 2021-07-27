@@ -1,4 +1,4 @@
-package br.com.projeto.casa.codigo.notificacao;
+package br.com.projeto.casa.codigo.advice;
 
 class RespostaErro {
 

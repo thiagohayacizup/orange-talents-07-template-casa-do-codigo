@@ -1,4 +1,4 @@
-package br.com.projeto.casa.codigo.notificacao;
+package br.com.projeto.casa.codigo.advice;
 
 import br.com.projeto.casa.codigo.autor.modelo.excessao.AutorJaCadastradoException;
 import br.com.projeto.casa.codigo.autor.modelo.excessao.EmailFormatoInvalidoException;
