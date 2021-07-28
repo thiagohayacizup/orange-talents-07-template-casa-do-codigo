@@ -17,6 +17,7 @@ import java.util.Optional;
 
 @Entity
 public class Autor {
+
     public static final String NOME_INVALIDO = "Nome do autor invalido.";
 
     public static final String EMAIL_INVALIDO = "Email do autor invalido.";

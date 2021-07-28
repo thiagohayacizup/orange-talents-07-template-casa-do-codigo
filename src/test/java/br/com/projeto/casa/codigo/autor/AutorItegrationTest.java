@@ -1,5 +1,6 @@
 package br.com.projeto.casa.codigo.autor;
 
+import br.com.projeto.casa.codigo.MockErro;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,7 +59,7 @@ public class AutorItegrationTest {
                         .getFile("classpath:br/com/projeto/casa/codigo/autor/autor-ja-cadastrado.json")
                         .toPath()
         );
-        mockBadRequest( request );
+        MockErro.mockBadRequest( mockMvc, request, AUTOR_ENDPOINT );
     }
 
     @Test
@@ -69,7 +70,7 @@ public class AutorItegrationTest {
                         .getFile("classpath:br/com/projeto/casa/codigo/autor/autor-email-invalido.json")
                         .toPath()
         );
-        mockBadRequest( request );
+        MockErro.mockBadRequest( mockMvc, request, AUTOR_ENDPOINT );
     }
 
     @Test
@@ -80,19 +81,7 @@ public class AutorItegrationTest {
                         .getFile("classpath:br/com/projeto/casa/codigo/autor/autor-nome-invalido.json")
                         .toPath()
         );
-        mockBadRequest( request );
-    }
-
-    private void mockBadRequest( final String request ) throws Exception {
-        mockMvc.perform(
-                MockMvcRequestBuilders
-                        .post(AUTOR_ENDPOINT)
-                        .contentType( MediaType.APPLICATION_JSON )
-                        .content( request )
-        ).andDo( MockMvcResultHandlers.print() )
-                .andExpect( MockMvcResultMatchers.status().isBadRequest() )
-                .andExpect( MockMvcResultMatchers.content().contentType( MediaType.APPLICATION_JSON ) )
-                .andExpect( MockMvcResultMatchers.jsonPath("$.codigo").value(400));
+        MockErro.mockBadRequest( mockMvc, request, AUTOR_ENDPOINT );
     }
 
 }
