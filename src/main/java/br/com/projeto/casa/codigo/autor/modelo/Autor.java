@@ -1,6 +1,5 @@
 package br.com.projeto.casa.codigo.autor.modelo;
 
-import br.com.projeto.casa.codigo.autor.modelo.excessao.AutorJaCadastradoException;
 import br.com.projeto.casa.codigo.autor.modelo.excessao.EmailFormatoInvalidoException;
 import br.com.projeto.casa.codigo.autor.repositorio.AutorRepositorio;
 import br.com.projeto.casa.codigo.email.Email;
@@ -13,7 +12,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.Instant;
-import java.util.Optional;
 
 @Entity
 public class Autor {
@@ -64,19 +62,7 @@ public class Autor {
     private Instant dataCadastro;
 
     public Autor cadastrar( final AutorRepositorio autorRepositorio ){
-        buscarAutorPorEmail( autorRepositorio )
-                .ifPresent(
-                        autor -> {
-                            throw new AutorJaCadastradoException(
-                                    String.format("Autor com email { %s } ja está cadastrado.", email)
-                            );
-                        }
-                );
         return autorRepositorio.save( this );
-    }
-
-    private Optional<Autor> buscarAutorPorEmail(final AutorRepositorio autorRepositorio ){
-        return autorRepositorio.findByEmail( email );
     }
 
     public String getNome() {

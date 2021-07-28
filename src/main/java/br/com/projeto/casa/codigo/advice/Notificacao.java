@@ -1,8 +1,6 @@
 package br.com.projeto.casa.codigo.advice;
 
-import br.com.projeto.casa.codigo.autor.modelo.excessao.AutorJaCadastradoException;
 import br.com.projeto.casa.codigo.autor.modelo.excessao.EmailFormatoInvalidoException;
-import br.com.projeto.casa.codigo.categoria.modelo.excessao.CategoriaJaCadastradaException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -15,18 +13,6 @@ class Notificacao {
     @ExceptionHandler({EmailFormatoInvalidoException.class})
     @ResponseStatus( HttpStatus.BAD_REQUEST )
     RespostaErro emailFormatoInvalido( final EmailFormatoInvalidoException exception ){
-        return new RespostaErro( 400, exception.getMessage() );
-    }
-
-    @ExceptionHandler({AutorJaCadastradoException.class})
-    @ResponseStatus( HttpStatus.BAD_REQUEST )
-    RespostaErro autorJaCadastrado( final AutorJaCadastradoException exception ){
-        return new RespostaErro( 400, exception.getMessage() );
-    }
-
-    @ExceptionHandler({CategoriaJaCadastradaException.class})
-    @ResponseStatus( HttpStatus.BAD_REQUEST )
-    RespostaErro categoriaJaCadastrada( final CategoriaJaCadastradaException exception ){
         return new RespostaErro( 400, exception.getMessage() );
     }
 

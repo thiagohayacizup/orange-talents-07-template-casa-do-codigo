@@ -2,6 +2,7 @@ package br.com.projeto.casa.codigo.autor.controlador;
 
 import br.com.projeto.casa.codigo.autor.modelo.Autor;
 import br.com.projeto.casa.codigo.autor.repositorio.AutorRepositorio;
+import br.com.projeto.casa.codigo.validador.ValorUnico;
 
 import javax.validation.constraints.NotBlank;
 
@@ -15,6 +16,7 @@ class AutorRequisicao {
     private final String nome;
 
     @NotBlank( message = EMAIL_INVALIDO )
+    @ValorUnico( campo = "email", dominio = Autor.class )
     private final String email;
 
     @NotBlank( message = DESCRICAO_INVALIDO )
