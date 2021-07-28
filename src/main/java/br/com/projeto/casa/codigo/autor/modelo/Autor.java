@@ -1,5 +1,6 @@
 package br.com.projeto.casa.codigo.autor.modelo;
 
+import br.com.projeto.casa.codigo.autor.modelo.excessao.AutorNaoEncontrado;
 import br.com.projeto.casa.codigo.autor.modelo.excessao.EmailFormatoInvalidoException;
 import br.com.projeto.casa.codigo.autor.repositorio.AutorRepositorio;
 import br.com.projeto.casa.codigo.email.Email;
@@ -21,6 +22,13 @@ public class Autor {
     public static final String EMAIL_INVALIDO = "Email do autor invalido.";
     public static final String DESCRICAO_INVALIDO = "Descricao do autor invalido.";
     public static final String DESCRICAO_MAIS_400_CARACTERES = "Descricao tem mais de 400 caracteres.";
+
+    public static Autor buscarPorEmail( final String email, final AutorRepositorio autorRepositorio ){
+        return autorRepositorio.findByEmail( email )
+                .orElseThrow(() -> new AutorNaoEncontrado(
+                        String.format("Autor { %s } não encontrado.", email)
+                ));
+    }
 
     public static Autor mock( final String email ){
         return new Autor( "", email, "" );

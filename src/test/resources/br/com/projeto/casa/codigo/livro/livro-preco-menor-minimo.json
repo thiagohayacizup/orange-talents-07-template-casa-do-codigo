@@ -1,0 +1,16 @@
+{
+  "titulo":"Aventura",
+  "resumo":"Resumo",
+  "sumario":"Sumario",
+  "preco": 15.0,
+  "numeroPaginas": 101,
+  "isbn": "ISBN 467-5847-474-3375-03776",
+  "dataLancamento": "2022-01-01",
+  "categoria": {
+    "nome": "Aventura/Comedia"
+  },
+  "autor": {
+    "nome": "Maria Silveira",
+    "email": "maria.silveira@email.com"
+  }
+}

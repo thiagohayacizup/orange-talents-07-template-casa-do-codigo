@@ -16,7 +16,7 @@ class AutorRequisicao {
     private final String nome;
 
     @NotBlank( message = EMAIL_INVALIDO )
-    @ValorUnico( campo = "email", dominio = Autor.class )
+    @ValorUnico( campo = "email", dominio = Autor.class, message = "Email deve ser unico." )
     private final String email;
 
     @NotBlank( message = DESCRICAO_INVALIDO )

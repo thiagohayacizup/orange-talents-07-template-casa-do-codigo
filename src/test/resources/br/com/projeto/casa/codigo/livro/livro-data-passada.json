@@ -1,0 +1,16 @@
+{
+  "titulo":"Aventura",
+  "resumo":"Resumo",
+  "sumario":"Sumario",
+  "preco": 50.0,
+  "numeroPaginas": 101,
+  "isbn": "ISBN 467-5847-474-3375-03776",
+  "dataLancamento": "2019-01-01",
+  "categoria": {
+    "nome": "Acao/Aventura"
+  },
+  "autor": {
+    "nome": "Lucas Souza",
+    "email": "lucas.souza@email.com"
+  }
+}

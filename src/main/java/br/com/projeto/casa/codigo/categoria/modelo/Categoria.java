@@ -1,5 +1,6 @@
 package br.com.projeto.casa.codigo.categoria.modelo;
 
+import br.com.projeto.casa.codigo.categoria.modelo.excessao.CategoriaNaoEncontrada;
 import br.com.projeto.casa.codigo.categoria.repositorio.CategoriaRepositorio;
 
 import javax.persistence.Entity;
@@ -12,6 +13,13 @@ import javax.validation.constraints.NotBlank;
 public class Categoria {
 
     public static final String NOME_INVALIDO = "Nome da categoria invalido.";
+
+    public static Categoria buscarPorNome( final String nome, final CategoriaRepositorio categoriaRepositorio ){
+        return categoriaRepositorio.findByNome( nome )
+                .orElseThrow( () -> new CategoriaNaoEncontrada(
+                        String.format("Categoria { %s } não encontrada.", nome)
+                ));
+    }
 
     private Categoria(){}
 

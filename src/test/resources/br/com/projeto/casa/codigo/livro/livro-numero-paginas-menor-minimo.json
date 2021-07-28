@@ -1,0 +1,16 @@
+{
+  "titulo":"Aventura",
+  "resumo":"Resumo",
+  "sumario":"Sumario",
+  "preco": 50.0,
+  "numeroPaginas": 60,
+  "isbn": "ISBN 467-5847-474-3375-03776",
+  "dataLancamento": "2022-01-01",
+  "categoria": {
+    "nome": "Aventura"
+  },
+  "autor": {
+    "nome": "Joao Silveira",
+    "email": "joao.silveira@email.com"
+  }
+}

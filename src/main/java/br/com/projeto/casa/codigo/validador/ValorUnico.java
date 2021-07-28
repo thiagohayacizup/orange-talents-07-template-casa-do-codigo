@@ -6,7 +6,7 @@ import java.lang.annotation.*;
 
 @Documented
 @Constraint( validatedBy = {ValorUnicoValidador.class} )
-@Target( ElementType.FIELD )
+@Target( {ElementType.FIELD, ElementType.PARAMETER} )
 @Retention( RetentionPolicy.RUNTIME )
 public @interface ValorUnico {
 

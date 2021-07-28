@@ -1,0 +1,16 @@
+{
+  "titulo":"Contos",
+  "resumo":"Resumo",
+  "sumario":"Sumario",
+  "preco": 55.0,
+  "numeroPaginas": 101,
+  "isbn": "ISBN 467",
+  "dataLancamento": "2022-01-01",
+  "categoria": {
+    "nome": "Aventura"
+  },
+  "autor": {
+    "nome": "Joao Silveira",
+    "email": "joao.silveira@email.com"
+  }
+}
