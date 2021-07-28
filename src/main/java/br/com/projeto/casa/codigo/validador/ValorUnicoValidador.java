@@ -31,17 +31,3 @@ class ValorUnicoValidador implements ConstraintValidator<ValorUnico, Object> {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
