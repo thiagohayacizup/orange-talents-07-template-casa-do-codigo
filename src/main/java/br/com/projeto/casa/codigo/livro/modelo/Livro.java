@@ -2,6 +2,7 @@ package br.com.projeto.casa.codigo.livro.modelo;
 
 import br.com.projeto.casa.codigo.autor.modelo.Autor;
 import br.com.projeto.casa.codigo.categoria.modelo.Categoria;
+import br.com.projeto.casa.codigo.livro.modelo.excessao.LivroNaoEncontradoException;
 import br.com.projeto.casa.codigo.livro.repositorio.LivroProjecao;
 import br.com.projeto.casa.codigo.livro.repositorio.LivroRepositorio;
 
@@ -20,6 +21,13 @@ public class Livro {
 
     public static List<LivroProjecao> buscarLivros( final LivroRepositorio livroRepositorio ){
         return livroRepositorio.buscarLivros();
+    }
+
+    public static Livro buscarPorId( final Long id, final LivroRepositorio livroRepositorio ){
+        return livroRepositorio.findById( id )
+                .orElseThrow( () -> new LivroNaoEncontradoException(
+                        String.format("Livro com id { %s } não foi encontrado.", id)
+                ));
     }
 
     private Livro(){}
@@ -149,6 +157,34 @@ public class Livro {
 
     public String getIsbn() {
         return isbn;
+    }
+
+    public String getResumo() {
+        return resumo;
+    }
+
+    public String getSumario() {
+        return sumario;
+    }
+
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+    public Integer getNumeroPaginas() {
+        return numeroPaginas;
+    }
+
+    public LocalDate getDataLancamento() {
+        return dataLancamento;
+    }
+
+    public String getCategoria() {
+        return categoria.getNome();
+    }
+
+    public String getAutor() {
+        return autor.getNome();
     }
 
 }

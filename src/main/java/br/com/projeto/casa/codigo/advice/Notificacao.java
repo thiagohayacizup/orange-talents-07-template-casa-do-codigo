@@ -3,6 +3,7 @@ package br.com.projeto.casa.codigo.advice;
 import br.com.projeto.casa.codigo.autor.modelo.excessao.AutorNaoEncontrado;
 import br.com.projeto.casa.codigo.autor.modelo.excessao.EmailFormatoInvalidoException;
 import br.com.projeto.casa.codigo.categoria.modelo.excessao.CategoriaNaoEncontrada;
+import br.com.projeto.casa.codigo.livro.modelo.excessao.LivroNaoEncontradoException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -38,6 +39,12 @@ class Notificacao {
     @ExceptionHandler({AutorNaoEncontrado.class})
     @ResponseStatus( HttpStatus.BAD_REQUEST )
     RespostaErro autorNaoEncontrado( final AutorNaoEncontrado exception ){
+        return new RespostaErro( 400, exception.getMessage() );
+    }
+
+    @ExceptionHandler({LivroNaoEncontradoException.class})
+    @ResponseStatus( HttpStatus.BAD_REQUEST )
+    RespostaErro livroNaoEncontrado( final LivroNaoEncontradoException exception ){
         return new RespostaErro( 400, exception.getMessage() );
     }
 

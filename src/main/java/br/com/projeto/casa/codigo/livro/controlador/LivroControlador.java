@@ -36,4 +36,12 @@ class LivroControlador {
         return Livro.buscarLivros( livroRepositorio );
     }
 
+    @GetMapping("/livro/{id}")
+    @ResponseStatus( HttpStatus.OK )
+    public @ResponseBody LivroDetalhadoResposta livro( @PathVariable("id") final Long id ){
+        return new LivroDetalhadoResposta(
+                Livro.buscarPorId( id, livroRepositorio )
+        );
+    }
+
 }

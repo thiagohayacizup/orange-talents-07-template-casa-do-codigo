@@ -21,7 +21,7 @@ public class Categoria {
                 ));
     }
 
-    private Categoria(){}
+    Categoria(){}
 
     public Categoria(final String nome){
         this.nome = nome;

@@ -38,7 +38,7 @@ public class Autor {
         return Email.match( email );
     }
 
-    private Autor(){}
+    Autor(){}
 
     public Autor(final String nome, final String email, final String descricao){
         if( !emailValido( email ) )
