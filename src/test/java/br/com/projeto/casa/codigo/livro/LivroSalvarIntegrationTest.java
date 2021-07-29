@@ -22,7 +22,7 @@ import java.nio.file.Files;
 @SpringBootTest
 @AutoConfigureMockMvc
 @DirtiesContext( classMode = DirtiesContext.ClassMode.BEFORE_CLASS )
-public class LivroIntegrationTest {
+public class LivroSalvarIntegrationTest {
 
     public static final String LIVRO_ENDPOINT = "/livro";
 
@@ -40,7 +40,7 @@ public class LivroIntegrationTest {
                                 .content(
                                         Files.readString(
                                                 ResourceUtils
-                                                        .getFile("classpath:br/com/projeto/casa/codigo/livro/livro-cadastrado-sucesso.json")
+                                                        .getFile("classpath:br/com/projeto/casa/codigo/livro/salvar/livro-cadastrado-sucesso.json")
                                                         .toPath()
                                         )
                                 )
@@ -57,7 +57,7 @@ public class LivroIntegrationTest {
     public void livroTituloUnico() throws Exception {
         final String request = Files.readString(
                 ResourceUtils
-                        .getFile("classpath:br/com/projeto/casa/codigo/livro/livro-titulo-unico.json")
+                        .getFile("classpath:br/com/projeto/casa/codigo/livro/salvar/livro-titulo-unico.json")
                         .toPath()
         );
         MockErro.mockBadRequest( mockMvc, request, LIVRO_ENDPOINT );
@@ -69,7 +69,7 @@ public class LivroIntegrationTest {
     public void livroIsbnUnico() throws Exception {
         final String request = Files.readString(
                 ResourceUtils
-                        .getFile("classpath:br/com/projeto/casa/codigo/livro/livro-isbn-unico.json")
+                        .getFile("classpath:br/com/projeto/casa/codigo/livro/salvar/livro-isbn-unico.json")
                         .toPath()
         );
         MockErro.mockBadRequest( mockMvc, request, LIVRO_ENDPOINT );
@@ -81,7 +81,7 @@ public class LivroIntegrationTest {
     public void livroPrecoMenorMinimo() throws Exception {
         final String request = Files.readString(
                 ResourceUtils
-                        .getFile("classpath:br/com/projeto/casa/codigo/livro/livro-preco-menor-minimo.json")
+                        .getFile("classpath:br/com/projeto/casa/codigo/livro/salvar/livro-preco-menor-minimo.json")
                         .toPath()
         );
         MockErro.mockBadRequest( mockMvc, request, LIVRO_ENDPOINT );
@@ -93,7 +93,7 @@ public class LivroIntegrationTest {
     public void livroNumeroPaginasMenorMinimo() throws Exception {
         final String request = Files.readString(
                 ResourceUtils
-                        .getFile("classpath:br/com/projeto/casa/codigo/livro/livro-numero-paginas-menor-minimo.json")
+                        .getFile("classpath:br/com/projeto/casa/codigo/livro/salvar/livro-numero-paginas-menor-minimo.json")
                         .toPath()
         );
         MockErro.mockBadRequest( mockMvc, request, LIVRO_ENDPOINT );
@@ -105,7 +105,7 @@ public class LivroIntegrationTest {
     public void livroDataPassada() throws Exception {
         final String request = Files.readString(
                 ResourceUtils
-                        .getFile("classpath:br/com/projeto/casa/codigo/livro/livro-data-passada.json")
+                        .getFile("classpath:br/com/projeto/casa/codigo/livro/salvar/livro-data-passada.json")
                         .toPath()
         );
         MockErro.mockBadRequest( mockMvc, request, LIVRO_ENDPOINT );
@@ -118,7 +118,7 @@ public class LivroIntegrationTest {
     public void categoriaNaoEncontrada() throws Exception {
         final String request = Files.readString(
                 ResourceUtils
-                        .getFile("classpath:br/com/projeto/casa/codigo/livro/categoria-nao-encontrada.json")
+                        .getFile("classpath:br/com/projeto/casa/codigo/livro/salvar/categoria-nao-encontrada.json")
                         .toPath()
         );
         MockErro.mockBadRequest( mockMvc, request, LIVRO_ENDPOINT );
@@ -130,7 +130,7 @@ public class LivroIntegrationTest {
     public void autorNaoEncontrado() throws Exception {
         final String request = Files.readString(
                 ResourceUtils
-                        .getFile("classpath:br/com/projeto/casa/codigo/livro/autor-nao-encontrado.json")
+                        .getFile("classpath:br/com/projeto/casa/codigo/livro/salvar/autor-nao-encontrado.json")
                         .toPath()
         );
         MockErro.mockBadRequest( mockMvc, request, LIVRO_ENDPOINT );

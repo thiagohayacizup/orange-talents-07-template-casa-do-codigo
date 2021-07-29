@@ -2,18 +2,24 @@ package br.com.projeto.casa.codigo.livro.modelo;
 
 import br.com.projeto.casa.codigo.autor.modelo.Autor;
 import br.com.projeto.casa.codigo.categoria.modelo.Categoria;
+import br.com.projeto.casa.codigo.livro.repositorio.LivroProjecao;
 import br.com.projeto.casa.codigo.livro.repositorio.LivroRepositorio;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class Livro {
 
     public static Builder builder(){
         return new Builder();
+    }
+
+    public static List<LivroProjecao> buscarLivros( final LivroRepositorio livroRepositorio ){
+        return livroRepositorio.buscarLivros();
     }
 
     private Livro(){}
