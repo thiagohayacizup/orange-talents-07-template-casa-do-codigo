@@ -1,5 +1,6 @@
 package br.com.projeto.casa.codigo.pais.modelo;
 
+import br.com.projeto.casa.codigo.pais.modelo.excessao.PaisNaoEncontradoException;
 import br.com.projeto.casa.codigo.pais.repositorio.PaisRepositorio;
 
 import javax.persistence.Entity;
@@ -11,6 +12,14 @@ import javax.validation.constraints.NotBlank;
 @Entity
 public
 class Pais {
+
+    public static Pais buscarPorNome( final String nome, final PaisRepositorio paisRepositorio ){
+        return paisRepositorio
+                .findByNome( nome )
+                .orElseThrow(() -> new PaisNaoEncontradoException(
+                        String.format("Pais { %s } nao encontrado.", nome)
+                ));
+    }
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )

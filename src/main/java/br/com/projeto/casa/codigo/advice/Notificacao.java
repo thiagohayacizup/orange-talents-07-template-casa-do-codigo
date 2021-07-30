@@ -3,7 +3,9 @@ package br.com.projeto.casa.codigo.advice;
 import br.com.projeto.casa.codigo.autor.modelo.excessao.AutorNaoEncontrado;
 import br.com.projeto.casa.codigo.autor.modelo.excessao.EmailFormatoInvalidoException;
 import br.com.projeto.casa.codigo.categoria.modelo.excessao.CategoriaNaoEncontrada;
+import br.com.projeto.casa.codigo.estado.modelo.excessao.EstadoComPaisJaCadastradoException;
 import br.com.projeto.casa.codigo.livro.modelo.excessao.LivroNaoEncontradoException;
+import br.com.projeto.casa.codigo.pais.modelo.excessao.PaisNaoEncontradoException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -45,6 +47,18 @@ class Notificacao {
     @ExceptionHandler({LivroNaoEncontradoException.class})
     @ResponseStatus( HttpStatus.BAD_REQUEST )
     RespostaErro livroNaoEncontrado( final LivroNaoEncontradoException exception ){
+        return new RespostaErro( 400, exception.getMessage() );
+    }
+
+    @ExceptionHandler({PaisNaoEncontradoException.class})
+    @ResponseStatus( HttpStatus.BAD_REQUEST )
+    RespostaErro paisNaoEncontrado( final PaisNaoEncontradoException exception ){
+        return new RespostaErro( 400, exception.getMessage() );
+    }
+
+    @ExceptionHandler({EstadoComPaisJaCadastradoException.class})
+    @ResponseStatus( HttpStatus.BAD_REQUEST )
+    RespostaErro estadoJaCadastrado( final EstadoComPaisJaCadastradoException exception ){
         return new RespostaErro( 400, exception.getMessage() );
     }
 
