@@ -13,11 +13,11 @@ import javax.validation.constraints.NotBlank;
 public
 class Pais {
 
-    public static Pais buscarPorNome( final String nome, final PaisRepositorio paisRepositorio ){
+    public static Pais buscarPorNome( final Long id, final PaisRepositorio paisRepositorio ){
         return paisRepositorio
-                .findByNome( nome )
+                .findById( id )
                 .orElseThrow(() -> new PaisNaoEncontradoException(
-                        String.format("Pais { %s } nao encontrado.", nome)
+                        String.format("Pais com id { %d } nao encontrado.", id)
                 ));
     }
 

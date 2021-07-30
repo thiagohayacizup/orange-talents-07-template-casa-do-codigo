@@ -30,9 +30,9 @@ class EstadoIntegrationTest {
     private MockMvc mockMvc;
 
     @Test
-    @DisplayName("Estado cadastrado sucesso")
+    @DisplayName("Cadastrado o estado com sucesso")
     @Sql(statements = "INSERT INTO Pais(nome) VALUES ('Brasil')")
-    void estadoCadastradoSucesso() throws Exception {
+    void cadastradoEstadoSucesso() throws Exception {
         mockMvc.perform(
                         MockMvcRequestBuilders
                                 .post(ESTADO_ENDPOINT)
