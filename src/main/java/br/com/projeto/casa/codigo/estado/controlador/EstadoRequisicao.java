@@ -23,7 +23,7 @@ class EstadoRequisicao {
 
     EstadoResposta cadastrar(final EstadoRepositorio estadoRepositorio, final PaisRepositorio paisRepositorio ){
         return new EstadoResposta(
-                new Estado(nome, Pais.buscarPorNome( paisId, paisRepositorio ) )
+                new Estado(nome, Pais.buscarPorId( paisId, paisRepositorio ) )
                         .cadastrar( estadoRepositorio )
         );
     }

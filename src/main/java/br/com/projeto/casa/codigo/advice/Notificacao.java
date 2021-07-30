@@ -4,6 +4,7 @@ import br.com.projeto.casa.codigo.autor.modelo.excessao.AutorNaoEncontrado;
 import br.com.projeto.casa.codigo.autor.modelo.excessao.EmailFormatoInvalidoException;
 import br.com.projeto.casa.codigo.categoria.modelo.excessao.CategoriaNaoEncontrada;
 import br.com.projeto.casa.codigo.estado.modelo.excessao.EstadoComPaisJaCadastradoException;
+import br.com.projeto.casa.codigo.estado.modelo.excessao.EstadoNaoEncontradoException;
 import br.com.projeto.casa.codigo.livro.modelo.excessao.LivroNaoEncontradoException;
 import br.com.projeto.casa.codigo.pais.modelo.excessao.PaisNaoEncontradoException;
 import org.springframework.http.HttpStatus;
@@ -59,6 +60,12 @@ class Notificacao {
     @ExceptionHandler({EstadoComPaisJaCadastradoException.class})
     @ResponseStatus( HttpStatus.BAD_REQUEST )
     RespostaErro estadoJaCadastrado( final EstadoComPaisJaCadastradoException exception ){
+        return new RespostaErro( 400, exception.getMessage() );
+    }
+
+    @ExceptionHandler({EstadoNaoEncontradoException.class})
+    @ResponseStatus( HttpStatus.BAD_REQUEST )
+    RespostaErro estadoNaoEncontrado( final EstadoNaoEncontradoException exception ){
         return new RespostaErro( 400, exception.getMessage() );
     }
 

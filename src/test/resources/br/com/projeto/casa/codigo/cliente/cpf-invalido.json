@@ -1,0 +1,13 @@
+{
+  "email": "maria.silva@email.com",
+  "nome": "Joao",
+  "sobrenome": "Silveira",
+  "documento": "96.928.860-3",
+  "endereco": "Rua x, 100",
+  "complemento": "Casa",
+  "cidade": "cidade",
+  "paisId": 1,
+  "estadoId": 1,
+  "telefone": "647563214",
+  "cep": "32454123"
+}

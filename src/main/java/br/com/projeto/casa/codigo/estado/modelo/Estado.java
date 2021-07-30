@@ -1,6 +1,7 @@
 package br.com.projeto.casa.codigo.estado.modelo;
 
 import br.com.projeto.casa.codigo.estado.modelo.excessao.EstadoComPaisJaCadastradoException;
+import br.com.projeto.casa.codigo.estado.modelo.excessao.EstadoNaoEncontradoException;
 import br.com.projeto.casa.codigo.estado.repositorio.EstadoRepositorio;
 import br.com.projeto.casa.codigo.pais.modelo.Pais;
 
@@ -9,8 +10,15 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public
-class Estado {
+public class Estado {
+
+    public static Estado buscarPorId(final Long id, final EstadoRepositorio estadoRepositorio ){
+        return estadoRepositorio
+                .findById( id )
+                .orElseThrow( () -> new EstadoNaoEncontradoException(
+                        String.format("Estado com id { %d } nao encontrado.", id)
+                ));
+    }
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )

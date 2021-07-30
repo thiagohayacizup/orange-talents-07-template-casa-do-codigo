@@ -13,7 +13,7 @@ import javax.validation.constraints.NotBlank;
 public
 class Pais {
 
-    public static Pais buscarPorNome( final Long id, final PaisRepositorio paisRepositorio ){
+    public static Pais buscarPorId( final Long id, final PaisRepositorio paisRepositorio ){
         return paisRepositorio
                 .findById( id )
                 .orElseThrow(() -> new PaisNaoEncontradoException(
@@ -28,7 +28,7 @@ class Pais {
     @NotBlank
     private String nome;
 
-    private Pais(){}
+    protected Pais(){}
 
     public Pais(final String nome){
         this.nome = nome;

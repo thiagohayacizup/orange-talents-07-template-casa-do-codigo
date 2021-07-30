@@ -1,0 +1,13 @@
+{
+  "email": "joao.silveira@email.com",
+  "nome": "Joao",
+  "sobrenome": "Silveira",
+  "documento": "22.274.793/0001-70",
+  "endereco": "Rua x, 100",
+  "complemento": "Casa",
+  "cidade": "cidade",
+  "paisId": 1,
+  "estadoId": 1,
+  "telefone": "647563214",
+  "cep": "32454123"
+}
